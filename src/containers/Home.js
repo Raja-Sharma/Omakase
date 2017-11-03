@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { goToCamera } from '../actions';
+import { goToCamera, fetchIngredients } from '../actions';
 
 
 class Home extends Component {
@@ -14,6 +14,10 @@ class Home extends Component {
         <Image style={imageStyle} source={require('../img/OmakaseWhite.png')} />
         <TouchableHighlight onPress={() => this.props.goToCamera()} style={buttonStyle}>
           <Text style={buttonTextStyling} >Camera</Text>
+        </TouchableHighlight>
+        // temporary button to test Clarifai API
+        <TouchableHighlight onPress={() => this.props.fetchIngredients()} style={buttonStyle}>
+          <Text style={buttonTextStyling} >fetch</Text>
         </TouchableHighlight>
       </View>
     );
@@ -43,7 +47,7 @@ const styles = {
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ goToCamera: goToCamera }, dispatch)
+  return bindActionCreators({ goToCamera: goToCamera, fetchIngredients: fetchIngredients }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(Home);
