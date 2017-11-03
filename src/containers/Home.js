@@ -15,7 +15,6 @@ class Home extends Component {
         <TouchableHighlight onPress={() => this.props.goToCamera()} style={buttonStyle}>
           <Text style={buttonTextStyling} >Camera</Text>
         </TouchableHighlight>
-        // temporary button to test Clarifai API
         <TouchableHighlight onPress={() => this.props.fetchIngredients()} style={buttonStyle}>
           <Text style={buttonTextStyling} >fetch</Text>
         </TouchableHighlight>
