@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import ScreenReducer from './ScreenReducer';
 
 export default combineReducers({
-  test: () => ['foo', 'bar']
+  screen: ScreenReducer
 });
