@@ -7,13 +7,20 @@ import { goToCamera, fetchIngredients } from '../actions';
 
 class Home extends Component {
   render() {
-    const { buttonStyle, buttonTextStyling, imageStyle, viewStyle } = styles
+    const {
+      buttonStyle,
+      cameraImageStyle,
+      centerImageStyle,
+      headerImageStyle,
+      viewStyle
+    } = styles
     console.log('Home.js this.props', this.props)
     return (
       <View style={viewStyle}>
-        <Image style={imageStyle} source={require('../img/OmakaseWhite.png')} />
+        <Image style={headerImageStyle} source={require('../img/OmakaseWhite.png')} />
+        <Image style={centerImageStyle} source={require('../img/cook.jpg')} />
         <TouchableHighlight onPress={() => this.props.goToCamera()} style={buttonStyle}>
-          <Text style={buttonTextStyling} >Camera</Text>
+          <Image style={cameraImageStyle} source={require('../img/camera.png')} />
         </TouchableHighlight>
       </View>
     );
@@ -21,24 +28,30 @@ class Home extends Component {
 };
 
 const styles = {
-  imageStyle: {
+  headerImageStyle: {
     width: 300,
     height: 100,
     resizeMode: 'contain',
-    marginLeft: 30,
-    marginTop: 10,
-    marginBottom: 0
+    marginLeft: 55
+  },
+  centerImageStyle: {
+    width: 420,
+    height: 550,
+    resizeMode: 'contain',
+    marginLeft: -3
   },
   viewStyle: {
-    backgroundColor: '#800000'
+    backgroundColor: '#800000',
+    marginTop: 20
   },
   buttonStyle: {
-    backgroundColor: '#ADD8E6'
+    backgroundColor: '#800000'
   },
-  buttonTextStyling: {
-    fontSize: 50,
-    textAlign: 'center',
-    color: '#fff'
+  cameraImageStyle: {
+    width: 68,
+    height: 68,
+    resizeMode: 'contain',
+    alignSelf: 'center'
   }
 };
 
