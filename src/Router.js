@@ -9,7 +9,7 @@ const RouterComponent = () => {
   return (
     <Router>
       <Stack key="root">
-        <Scene title="Welcome" key="home" component={Home} initial />
+        <Scene hideNavBar={true} title="Back" key="home" component={Home} initial />
         <Scene title="Camera" key="appCamera" component={AppCamera} />
         <Scene title="Display" key="display" component={Display} />
       </Stack>
