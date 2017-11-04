@@ -32,7 +32,7 @@ const styles = {
     width: 300,
     height: 100,
     resizeMode: 'contain',
-    marginLeft: 55
+    alignSelf: 'center'
   },
   centerImageStyle: {
     width: 420,
