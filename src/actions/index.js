@@ -17,9 +17,15 @@ export function goToCamera() {
 }
 
 export function fetchIngredients(data) {
-    ReadImageData.readImage(data.path, (imageBase64) => {
-      clarifaiCall.models.predict("bd367be194cf45149e75f01d59f77ba7", {base64: imageBase64})
-        .then(response => console.log(response.outputs[0].data.concepts))
-        .catch(err => console.log(err))
+  ReadImageData.readImage(data.path, (imageBase64) => {
+    clarifaiCall.models.predict("bd367be194cf45149e75f01d59f77ba7", {base64: imageBase64})
+      .then(response => {
+        console.log('action fetchIngredients api response', response.outputs[0].data.concepts);
+        return {
+          type: 'INGREDIENTS',
+          payload: response.outputs[0].data.concepts
+        }
+      })
+      .catch(err => console.log(err))
   });
 }

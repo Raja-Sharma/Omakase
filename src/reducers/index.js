@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 import ScreenReducer from './ScreenReducer';
+import IngredientsReducer from './IngredientsReducer';
 
-export default combineReducers({
-  screen: ScreenReducer
-});
+const rootReducer = combineReducers({
+  screen: ScreenReducer,
+  ingredients: IngredientsReducer
+})
+
+export default rootReducer;
