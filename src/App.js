@@ -3,9 +3,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import RouterComponent from './Router';
-import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'redux-thunk'
 
-const createStoreWithMiddleWare = applyMiddleware(promiseMiddleware)(createStore)
+const createStoreWithMiddleWare = applyMiddleware(thunk)(createStore)
 
 const App = () => {
   return (
