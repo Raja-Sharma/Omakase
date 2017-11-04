@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Display extends Component {
   mapIngredients() {
     return this.props.ingredients.ingredients.map(ingredient => {
-      return <Text>{ingredient.name}</Text>
+      return <Text key={ingredient.id}>{ingredient.name}</Text>
     })
   }
 
