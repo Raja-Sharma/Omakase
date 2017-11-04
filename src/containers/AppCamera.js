@@ -8,6 +8,9 @@ import {
   View
 } from 'react-native';
 import Camera from 'react-native-camera';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchIngredients } from '../actions';
 
 class AppCamera extends Component {
   render() {
@@ -29,7 +32,7 @@ class AppCamera extends Component {
     const options = {};
     //options.location = ...
     this.camera.capture({metadata: options})
-      .then((data) => console.log(data))
+      .then((data) => this.props.fetchIngredients(data))
       .catch(err => console.error(err));
   }
 }
@@ -54,4 +57,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AppCamera;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchIngredients: fetchIngredients }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(AppCamera);
