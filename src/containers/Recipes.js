@@ -6,6 +6,8 @@ import { fetchRecipes } from '../actions'
 
 class Recipes extends Component {
   componentWillReceiveProps(nextProps) {
+    console.log('this.props', this.props);
+    console.log('nextProps', nextProps);
     if (nextProps.recipes === undefined) {
       let ingredientString = ''
       nextProps.ingredients.forEach(ingredient => {
@@ -16,12 +18,14 @@ class Recipes extends Component {
   }
 
   render() {
-    if (!this.props.ingredients) {
+    if (this.props.recipes === undefined) {
       return <ActivityIndicator />
+    } else if (this.props.recipes.length === 0) {
+      return <Text>no valid recipes</Text>
     }
     return(
       <View>
-        <Text>recipes are in</Text>
+        <Text>{this.props.recipes[0].title}</Text>
       </View>
     )
   }
