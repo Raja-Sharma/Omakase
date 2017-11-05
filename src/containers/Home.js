@@ -14,7 +14,6 @@ class Home extends Component {
       headerImageStyle,
       viewStyle
     } = styles
-    console.log('Home.js this.props', this.props)
     return (
       <View style={viewStyle}>
         <Image style={headerImageStyle} source={require('../img/OmakaseWhite.png')} />
