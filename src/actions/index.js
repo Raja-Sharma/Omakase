@@ -34,12 +34,10 @@ export function fetchIngredients(data) {
   }
 }
 
-
-
 export function fetchRecipes(ingredients) {
   if (ingredients !== undefined) {
     return (dispatch) => {
-    axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/menuItems/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=10&offset=0&query=${ingredients}`, {
+    axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=${ingredients}&limitLicense=false&number=5&ranking=1`, {
       headers: {
         "X-Mashape-Key": MASH_KEY,
         "Accept": "application/json"
@@ -48,7 +46,7 @@ export function fetchRecipes(ingredients) {
       .then(response => {
         dispatch({
           type: 'RECIPES',
-          payload: response.data.menuItems
+          payload: response.data
         })
       })
       .catch(err => console.log(err))
