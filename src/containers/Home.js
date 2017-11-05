@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, TouchableHighlight } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { goToCamera, fetchIngredients } from '../actions';
@@ -18,9 +18,9 @@ class Home extends Component {
       <View style={viewStyle}>
         <Image style={headerImageStyle} source={require('../img/OmakaseWhite.png')} />
         <Image style={centerImageStyle} source={require('../img/cook.jpg')} />
-        <TouchableHighlight onPress={() => this.props.goToCamera()} style={buttonStyle}>
+        <TouchableOpacity onPress={() => this.props.goToCamera()} style={buttonStyle}>
           <Image style={cameraImageStyle} source={require('../img/camera.png')} />
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -40,11 +40,11 @@ const styles = {
     marginLeft: -3
   },
   viewStyle: {
-    backgroundColor: '#800000',
+    backgroundColor: '#BB0000',
     marginTop: 20
   },
   buttonStyle: {
-    backgroundColor: '#800000'
+    backgroundColor: '#BB0000'
   },
   cameraImageStyle: {
     width: 68,
