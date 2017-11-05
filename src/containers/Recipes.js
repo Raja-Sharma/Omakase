@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRecipes } from '../actions'
+import { fetchRecipes } from '../actions';
+import CardContainer from '../components/CardContainer'
 
 class Recipes extends Component {
   componentWillReceiveProps(nextProps) {
@@ -24,9 +25,7 @@ class Recipes extends Component {
       return <Text>no valid recipes</Text>
     }
     return(
-      <View>
-        <Text>{this.props.recipes[0].title}</Text>
-      </View>
+      <CardContainer recipes={this.props.recipes} />
     )
   }
 }
